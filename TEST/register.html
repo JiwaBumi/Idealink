@@ -47,7 +47,7 @@
 <body>
     <div class="container">
         <h2>Idealink</h2>
-        <form>
+        <form onsubmit="saveName()" action="about.html">
             <label for="name">Nama:</label>
             <input type="text" id="name" name="name" required>
 
@@ -60,5 +60,12 @@
             <input type="submit" value="Daftar">
         </form>
     </div>
+
+    <script>
+        function saveName() {
+            var name = document.getElementById("name").value;
+            localStorage.setItem("userName", name);
+        }
+    </script>
 </body>
 </html>

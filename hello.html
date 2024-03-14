@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .file-item {
+            color: #ccc;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .file-item:hover {
+            color: #fff;
+        }
+        .file-content {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="file-item">RegularFiles</div>
+        <div class="file-item">Welcome</div>
+    </div>
+    <div class="main-content">
+        <div class="title">Welcome</div>
+        <div class="file-content">
+            This is an example of a text document. Feel free to edit and add more content!
+        </div>
+    </div>
+</body>
+</html>

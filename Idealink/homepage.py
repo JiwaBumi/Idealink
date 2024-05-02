@@ -1,6 +1,6 @@
 # homepage.py
 import tkinter as tk
-from tkinter import filedialog, simpledialog
+from tkinter import filedialog, simpledialog, messagebox
 from PIL import Image, ImageTk
 import os
 from workspace import workspace_window
@@ -24,6 +24,14 @@ def load_workspace():
     if selected_directory:
         workspace_window(selected_directory)
 
+def show_credits():
+    messagebox.showinfo("Credits", "Raden Jiwa Bumi Prajasantana\n"
+                                   "Hans Adriel\n"
+                                   "Jovan Christian\n"
+                                   "Callysa Tanjaya\n"
+                                   "Thank you for using our app :D")
+
+
 root = tk.Tk()
 root.title("IDEALINK")
 root.geometry("720x720")
@@ -41,16 +49,13 @@ app_icon_label = tk.Label(root, image=app_icon)
 app_icon_label.place(relx=0.5, rely=0.35, anchor=tk.CENTER)
 
 # Buttons
-new_workspace_btn = tk.Button(root, text="New Workspace", command=new_workspace, width=20, height=2)
+new_workspace_btn = tk.Button(root, text="New Workspace", command=new_workspace, width=30, height=3)
 new_workspace_btn.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
-load_workspace_btn = tk.Button(root, text="Load Workspace", command=load_workspace, width=20, height=2)
+load_workspace_btn = tk.Button(root, text="Load Workspace", command=load_workspace, width=30, height=3)
 load_workspace_btn.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
 
-# Load gear icon
-gear_icon_img = Image.open("Images/settings-icon.png").resize((30, 30))
-gear_icon = ImageTk.PhotoImage(gear_icon_img)
-gear_icon_btn = tk.Button(root, image=gear_icon, command=None, width=50, height=50)
-gear_icon_btn.place(relx=0.5, rely=0.8, anchor=tk.CENTER)
+credits_btn = tk.Button(root, text="Credits", command=show_credits, width=30, height=3)
+credits_btn.place(relx=0.5, rely=0.8, anchor=tk.CENTER)
 
 root.mainloop()

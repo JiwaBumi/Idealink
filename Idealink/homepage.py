@@ -36,6 +36,10 @@ root = tk.Tk()
 root.title("IDEALINK")
 root.geometry("720x720")
 
+# Change Window Icon (the one at top left of app)
+icon = "Images/window_icon.ico"  # Provide the path to your icon file
+root.iconbitmap(icon)
+
 # Load background image
 background_image = Image.open("Images/background.jpg")
 background_image = ImageTk.PhotoImage(background_image)

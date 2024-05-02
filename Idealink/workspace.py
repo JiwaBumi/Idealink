@@ -4,7 +4,10 @@ from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
 
 def workspace_window(workspace_path):
-    # Create new Tkinter window
+    def change_color_prompt():
+            response = messagebox.askyesno("ENABLE DARK THEME?", "Are you sure you want to go dark?\nCannot go back to the light until you restart!")
+            if response:
+                change_color()
 
     def change_color():
         # fg is foreground, bg is background
@@ -21,6 +24,7 @@ def workspace_window(workspace_path):
         delete_button.config(bg=button_bg, fg=button_fg)
         save_button.config(bg=button_bg, fg=button_fg)
 
+    # Create new Tkinter Window
     root = tk.Tk()
     root.title(os.path.basename(workspace_path))
  
@@ -49,7 +53,7 @@ def workspace_window(workspace_path):
     menu_bar = tk.Menu(root)
     file_menu = tk.Menu(menu_bar, tearoff=0)
     file_menu.add_command(label="Tutorial", command=assistance)
-    file_menu.add_command(label="Switch Theme", command=change_color)
+    file_menu.add_command(label="Enable Dark Theme", command=change_color_prompt)
 
     # Attach file_menu to menu_bar
     menu_bar.add_cascade(label="More", menu=file_menu)

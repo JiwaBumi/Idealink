@@ -8,6 +8,10 @@ def workspace_window(workspace_path):
     root.title(os.path.basename(workspace_path))
     root.geometry("800x720")
 
+    # Configure resizing behavior
+    root.grid_rowconfigure(0, weight=1)
+    root.grid_columnconfigure(1, weight=1)
+
     # List files in workspace directory
     files = os.listdir(workspace_path)
 
@@ -31,7 +35,7 @@ def workspace_window(workspace_path):
 
     # Text box
     text_box = tk.Text(root, width=70, height=40)
-    text_box.grid(row=0, column=1, padx=10, pady=10)
+    text_box.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
     # Function to handle opening .md file
     def open_md(event):
@@ -92,7 +96,7 @@ def workspace_window(workspace_path):
                     text_box.delete(1.0, tk.END)
                     text_box.insert(tk.END, file.read())
                 currently_open.delete(1.0, tk.END)
-                currently_open.insert(tk.END, f"Currently open: {selected_file}")
+                currently_open.insert(tk.END, f"Currently Editing: {selected_file}")
 
     listbox.bind("<Double-Button-1>", open_md)
 

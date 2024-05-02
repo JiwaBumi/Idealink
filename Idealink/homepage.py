@@ -1,11 +1,28 @@
+# homepage.py
 import tkinter as tk
+from tkinter import filedialog, simpledialog
 from PIL import Image, ImageTk
+import os
+from workspace import workspace_window
 
 def new_workspace():
-    print("New Workspace button clicked")
+    # Open file explorer to select directory
+    selected_directory = filedialog.askdirectory()
+    if selected_directory:
+        # Prompt user for workspace name
+        workspace_name = tk.simpledialog.askstring("New Workspace", "Enter workspace name:")
+        if workspace_name:
+            # Create folder with input name in selected directory
+            new_workspace_path = os.path.join(selected_directory, workspace_name)
+            os.makedirs(new_workspace_path, exist_ok=True)
+            workspace_window(new_workspace_path)
+
 
 def load_workspace():
-    print("Load Workspace button clicked")
+    # Open file explorer to select directory
+    selected_directory = filedialog.askdirectory()
+    if selected_directory:
+        workspace_window(selected_directory)
 
 root = tk.Tk()
 root.title("IDEALINK")

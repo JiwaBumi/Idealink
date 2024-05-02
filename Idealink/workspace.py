@@ -8,6 +8,29 @@ def workspace_window(workspace_path):
     root.title(os.path.basename(workspace_path))
     root.geometry("800x720")
 
+    # Change Window Icon (the one at top left of app)
+    icon = "Images/window_icon.ico"  # Provide the path to your icon file
+    root.iconbitmap(icon)
+
+    def assistance():
+        messagebox.showinfo("Tutorial", "Welcome to Idealink!\n"
+                                "On the left side shows the list of all your notes. Double click them to open\n"
+                                "Click [New] to create a new note! \n"
+                                "Click [Delete] to delete currently open note (BECAREFUL, CANNOT BE UNDONE!)\n"
+                                "Click [Save] to save your current work!")
+    
+    # Menu Bar
+    menu_bar = tk.Menu(root)
+    file_menu = tk.Menu(menu_bar, tearoff=0)
+    file_menu.add_command(label="Tutorial", command=assistance)
+    file_menu.add_command(label="Switch Theme", command=assistance)
+
+    # Attach file_menu to menu_bar
+    menu_bar.add_cascade(label="More", menu=file_menu)
+
+    # Configure menu_bar in root window
+    root.config(menu=menu_bar)
+
     # Configure resizing behavior
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(1, weight=1)
@@ -50,15 +73,50 @@ def workspace_window(workspace_path):
     listbox.bind("<Double-Button-1>", open_md)
 
     # New button
-    def new_md():
-        file_name = filedialog.asksaveasfilename(initialdir=workspace_path, title="New .md File", defaultextension=".md", filetypes=[("Markdown Files", "*.md")])
-        if file_name:
-            with open(file_name, 'w') as file:
-                file.write("")
-            md_files.append(os.path.basename(file_name))
-            listbox.insert(tk.END, os.path.basename(file_name))
+    def new_file():
+        # Function to handle OK button click in the custom dialog
+        def ok():
+            nonlocal file_name_entry
+            # Get the inputted file name
+            file_name = file_name_entry.get()
+            if file_name:
+                # Close the dialog window
+                dialog_window.destroy()
+                # Create the new .md file with the inputted name
+                file_path = os.path.join(workspace_path, file_name + ".md")
+                with open(file_path, 'w') as file:
+                    file.write("")
+                # Update listbox and md_files list
+                md_files.append(file_name + ".md")
+                listbox.insert(tk.END, file_name + ".md")
 
-    new_button = tk.Button(root, text="New", command=new_md, width=15)
+        # Function to handle Cancel button click in the custom dialog
+        def cancel():
+            dialog_window.destroy()
+
+        # Create the custom dialog window
+        dialog_window = tk.Toplevel()
+        dialog_window.title("Enter File Name")
+
+        # Label and Entry for file name input
+        file_name_label = tk.Label(dialog_window, text="Enter file name:")
+        file_name_label.pack()
+        file_name_entry = tk.Entry(dialog_window)
+        file_name_entry.pack()
+
+        # OK button
+        ok_button = tk.Button(dialog_window, text="OK", command=ok)
+        ok_button.pack(side="left", padx=5)
+
+        # Cancel button
+        cancel_button = tk.Button(dialog_window, text="Cancel", command=cancel)
+        cancel_button.pack(side="right", padx=5)
+
+        # Center the dialog window
+        dialog_window.geometry("+%d+%d" % (root.winfo_rootx() + 50, root.winfo_rooty() + 50))
+
+
+    new_button = tk.Button(root, text="New", command=new_file, width=15)
     new_button.grid(row=1, column=0, sticky="ew", padx=10, pady=(0, 5))
 
     # Delete button
@@ -73,7 +131,7 @@ def workspace_window(workspace_path):
                 listbox.delete(selected_index)
 
     delete_button = tk.Button(root, text="Delete", command=delete_md, width=15)
-    delete_button.grid(row=2, column=0, sticky="ew", padx=(10, 5), pady=(0, 5))
+    delete_button.grid(row=2, column=0, sticky="ew", padx=10, pady=(0, 5))
 
     # Save button
     def save_md():
@@ -103,7 +161,7 @@ def workspace_window(workspace_path):
     def ignore_click(event):
         return "break"
 
-    currently_open = tk.Text(root, height=1, width=70)
+    currently_open = tk.Text(root, height=1)
     currently_open.grid(row=2, column=1, sticky="w", padx=10, pady=(0, 5))
     currently_open.bind("<Button-1>", ignore_click)
 

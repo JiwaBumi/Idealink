@@ -8,11 +8,11 @@ def load_workspace():
     print("Load Workspace button clicked")
 
 root = tk.Tk()
-root.title("Workspace Manager")
-root.geometry("1280x720")
+root.title("IDEALINK")
+root.geometry("720x720")
 
 # Load app icon
-app_icon_img = Image.open("Images/main-logo.png").resize((300, 300))
+app_icon_img = Image.open("Images/main-logo.png").resize((350, 330))
 app_icon = ImageTk.PhotoImage(app_icon_img)
 app_icon_label = tk.Label(root, image=app_icon)
 app_icon_label.place(relx=0.5, rely=0.35, anchor=tk.CENTER)

@@ -8,7 +8,7 @@ def load_workspace():
     print("Load Workspace button clicked")
 
 root = tk.Tk()
-root.title("Workspace Manager")
+root.title("IDEALINK")
 root.geometry("1280x720")
 
 # Load app icon

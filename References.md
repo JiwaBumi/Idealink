@@ -12,3 +12,4 @@
 - “tkinter frame - Python Tutorial.” [Online]. Available: https://pythonbasics.org/tkinter-frame/
 - B. Klein, “16. Events and Binds in Tkinter | Tkinter | python-course.eu,” python-course.eu, Feb. 01, 2022. [Online]. Available: https://python-course.eu/tkinter/events-and-binds-in-tkinter.php. [Accessed: May 03, 2024]
 - “How to get .grid_columnconfigure() working inside Frame?,” Stack Overflow. [Online]. Available: https://stackoverflow.com/a/57168648
+- Background image https://www.wallpaperflare.com/white-lead-pencil-on-surface-white-pencil-minimalism-wooden-wallpaper-zpybo

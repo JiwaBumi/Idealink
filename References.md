@@ -1,0 +1,14 @@
+- P. Assets, “Display Image in Tk (tkinter),” Python Assets, Nov. 29, 2022. [Online]. Available: https://pythonassets.com/posts/display-image-in-tk-tkinter/
+- R. Gallen, “How to specify where a Tkinter window opens?,” Stack Overflow, Feb. 16, 2013. [Online]. Available: https://stackoverflow.com/a/14910894.
+- S. Summers, “How to replace the icon in a Tkinter app?,” Stack Overflow, Oct. 15, 2015. [Online]. Available: https://stackoverflow.com/a/33139792.
+- GeeksforGeeks, “Python Tkinter  Create Button Widget,” GeeksforGeeks, May 01, 2024. [Online]. Available: https://www.geeksforgeeks.org/python-creating-a-button-in-tkinter/.
+- “15.8. Tkinter Standard Dialog Boxes — How to Think like a Computer Scientist: Interactive Edition.” [Online]. Available: https://runestone.academy/ns/books/published/thinkcspy/GUIandEventDrivenProgramming/02_standard_dialog_boxes.html
+- Codemy.com, “Using .config() to Update Widgets - Python Tkinter GUI Tutorial #63,” YouTube, Apr. 28, 2020. [Online]. Available: https://www.youtube.com/watch?v=tqKyMDqp-3E
+- “tkinter menu bar,” pythonspot, May 05, 2015. [Online]. Available: https://pythonspot.com/tk-menubar/
+- B. Sky, “How to list files in a folder to a TK Listbox - Python3,” Stack Overflow, Oct. 07, 2017. [Online]. Available: https://stackoverflow.com/questions/46625722/how-to-list-files-in-a-folder-to-a-tk-listbox-python3
+- acw1668, “How do I save my text from the textbox on tkinter to a text file?,” Stack Overflow, Jan. 20, 2021. [Online]. Available: https://stackoverflow.com/a/65802783
+- P. Assets, “Listbox in Tk (tkinter),” Python Assets, Oct. 25, 2022. [Online]. Available: https://pythonassets.com/posts/listbox-in-tk-tkinter/
+- Simimic, “How to use Windows File Explorer to select and return a directory using Python?,” Stack Overflow, Mar. 16, 2021. [Online]. Available: https://stackoverflow.com/a/66663671.
+- “tkinter frame - Python Tutorial.” [Online]. Available: https://pythonbasics.org/tkinter-frame/
+- B. Klein, “16. Events and Binds in Tkinter | Tkinter | python-course.eu,” python-course.eu, Feb. 01, 2022. [Online]. Available: https://python-course.eu/tkinter/events-and-binds-in-tkinter.php. [Accessed: May 03, 2024]
+- “How to get .grid_columnconfigure() working inside Frame?,” Stack Overflow. [Online]. Available: https://stackoverflow.com/a/57168648

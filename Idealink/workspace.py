@@ -1,12 +1,30 @@
 import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
+from PIL import Image, ImageTk
 
 def workspace_window(workspace_path):
     # Create new Tkinter window
+
+    def change_color():
+        # fg is foreground, bg is background
+        root.config(bg="black")
+        textbox_listbox_bg = "dark gray"
+        textbox_listbox_fg = "white"
+        button_bg = "gray20"
+        button_fg = "white"
+
+        # Configss
+        text_box.config(bg=textbox_listbox_bg, fg=textbox_listbox_fg)
+        listbox.config(bg=textbox_listbox_bg, fg=textbox_listbox_fg)
+        new_button.config(bg=button_bg, fg=button_fg)
+        delete_button.config(bg=button_bg, fg=button_fg)
+        save_button.config(bg=button_bg, fg=button_fg)
+
     root = tk.Tk()
     root.title(os.path.basename(workspace_path))
     root.geometry("800x720")
+
 
     # Change Window Icon (the one at top left of app)
     icon = "Images/window_icon.ico"  # Provide the path to your icon file
@@ -18,12 +36,12 @@ def workspace_window(workspace_path):
                                 "Click [New] to create a new note! \n"
                                 "Click [Delete] to delete currently open note (BECAREFUL, CANNOT BE UNDONE!)\n"
                                 "Click [Save] to save your current work!")
-    
+
     # Menu Bar
     menu_bar = tk.Menu(root)
     file_menu = tk.Menu(menu_bar, tearoff=0)
     file_menu.add_command(label="Tutorial", command=assistance)
-    file_menu.add_command(label="Switch Theme", command=assistance)
+    file_menu.add_command(label="Switch Theme", command=change_color)
 
     # Attach file_menu to menu_bar
     menu_bar.add_cascade(label="More", menu=file_menu)

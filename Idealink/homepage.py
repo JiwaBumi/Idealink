@@ -4,6 +4,8 @@ from tkinter import filedialog, simpledialog, messagebox
 from PIL import Image, ImageTk
 import os
 from workspace import workspace_window
+from tkinter import Canvas
+
 
 def new_workspace():
     # Open file explorer to select directory
@@ -51,14 +53,15 @@ root.iconbitmap(icon)
 # Load background image
 background_image = Image.open("Images/background.jpg")
 background_image = ImageTk.PhotoImage(background_image)
-background_label = tk.Label(root, image=background_image)
-background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-# Load app icon
+# Load app logo
 app_icon_img = Image.open("Images/main-logo.png").resize((350, 330))
 app_icon = ImageTk.PhotoImage(app_icon_img)
-app_icon_label = tk.Label(root, image=app_icon)
-app_icon_label.place(relx=0.5, rely=0.35, anchor=tk.CENTER)
+
+canvas = Canvas(root, width=800, height=720)
+canvas.pack()
+bg_image_id = canvas.create_image(0, 0, anchor="nw", image=background_image)
+app_icon_id = canvas.create_image(400, 200, anchor="center", image=app_icon)
 
 # Buttons
 new_workspace_btn = tk.Button(root, text="New Workspace", command=new_workspace, width=30, height=3)
@@ -69,5 +72,8 @@ load_workspace_btn.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
 
 credits_btn = tk.Button(root, text="Credits", command=show_credits, width=30, height=3)
 credits_btn.place(relx=0.5, rely=0.8, anchor=tk.CENTER)
+
+# Disable window resizing
+root.resizable(False, False)
 
 root.mainloop()

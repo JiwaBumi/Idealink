@@ -23,7 +23,15 @@ def workspace_window(workspace_path):
 
     root = tk.Tk()
     root.title(os.path.basename(workspace_path))
-    root.geometry("800x720")
+ 
+    #window Position
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    window_width = 800
+    window_height = 720
+    x_position = (screen_width - window_width) // 2
+    y_position = (screen_height - window_height) // 2
+    root.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
 
 
     # Change Window Icon (the one at top left of app)

@@ -11,6 +11,12 @@ root = tk.Tk()
 root.title("IDEALINK")
 root.geometry("720x720")
 
+# Load background image
+background_image = Image.open("Images/background.jpg")
+background_image = ImageTk.PhotoImage(background_image)
+background_label = tk.Label(root, image=background_image)
+background_label.place(x=0, y=0, relwidth=1, relheight=1)
+
 # Load app icon
 app_icon_img = Image.open("Images/main-logo.png").resize((350, 330))
 app_icon = ImageTk.PhotoImage(app_icon_img)

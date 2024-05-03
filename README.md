@@ -1,6 +1,6 @@
-Idealink is a note-taking app developed in Python using Tkinter
+## **Idealink is a note-taking app developed in Python using Tkinter**
 
-Pengembangan Piranti Lunak UAS Mei 2024 UPH Karawaci
+_Pengembangan Piranti Lunak UAS Mei 2024 UPH Karawaci_
 
 Raden Jiwa Bumi Prajasantana, Hans Adriel, Jovan Christian, Callysa Tanjaya
 
